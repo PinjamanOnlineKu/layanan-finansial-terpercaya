@@ -1,0 +1,204 @@
+/* Import Font Keren */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif; /* Ganti font dengan yang lebih futuristik */
+}
+
+/* Background */
+body {
+    background-image: url('black-background-with-keypad-keys-top-black-background_270292-1168.avif'); /* Ganti dengan URL gambar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Overlay */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+/* Efek border stroke warna-warni (Hitam & Ungu) */
+.circle-border {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: transparent;
+    padding: 5px;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* Efek Glow Border */
+.circle-border::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #000000, #6a0dad, #000000, #6a0dad);
+    background-size: 300% 300%;
+    animation: glowing 3s infinite linear;
+    z-index: -1;
+    filter: blur(15px);
+}
+
+/* Animasi Stroke */
+@keyframes glowing {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animasi Pulse */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Kontainer login bulat */
+.circle-inner {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1); /* Transparan */
+    backdrop-filter: blur(15px); /* Efek kaca */
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Judul */
+h2 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Input */
+.input-group {
+    width: 80%;
+    margin-bottom: 12px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+/* Tombol login */
+.login-button {
+    width: 85%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.login-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 8px;
+}
+
+/* Animasi Spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsif */
+@media (max-width: 400px) {
+    .circle-border {
+        width: 280px;
+        height: 280px;
+    }
+
+    .circle-inner {
+        width: 260px;
+        height: 260px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .login-button {
+        font-size: 13px;
+    }
+}
